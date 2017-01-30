@@ -173,7 +173,7 @@ function factorial() {
     }
     else {
         for (i = 1; i <= current_input; i++) {
-            fact = fact * iother_memory;
+            fact = fact * i;
         }
         current_input = fact;
     }
