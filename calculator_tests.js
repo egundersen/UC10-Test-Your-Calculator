@@ -74,3 +74,26 @@ QUnit.test( "Square number test", function( assert ) {
 
 //US9: Bug Alert! As an easily confused user I don't want to be able to type numbers into the screen that causes some of the numbers to disappear off the screen, thus confusing me about what I actually typed.
 
+QUnit.test( "Square number test", function( assert ) {
+    addDigit('1');
+    addDigit('2');
+    addDigit('3');
+    addDigit('4');
+    addDigit('5');
+    addDigit('6');
+    addDigit('7');
+    addDigit('8');
+    addDigit('9');
+    addDigit('0');
+    addDigit('1');
+    addDigit('2');
+    addDigit('3');
+    addDigit('4');
+    addDigit('5');
+    addDigit('6');
+    addDigit('7');
+    addDigit('8');
+    addDigit('9');
+    assert.equal(document.getElementById("screen").value, "123456789012345678", "Passed - Expected only 17");
+    allClear();
+});

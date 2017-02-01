@@ -20,7 +20,7 @@ function addDigit(dig) {
     if (current_input.length + 1 > 18) {
         alert("No more than 18 characters");
     }
-    if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
+    else if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
         current_input = dig;
     }
     else {
