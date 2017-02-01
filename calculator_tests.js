@@ -14,11 +14,22 @@ QUnit.test( "Add decimal test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
     allClear();
 });
-//US1: As a user, I want to be able to press a button and change the sign of the current number that I have inputted into the calculator.
 
+//US1: As a user, I want to be able to press a button and change the sign of the current number that I have inputted into the calculator.
+QUnit.test("Test the changeSign function.", function (assert) {
+    addDigit('1');
+    changeSign();
+    assert.deepEqual(document.getElementById("screen").value, "-1", "Passed - Expected -1");
+    allClear();
+});
 
 //US2: As a user I want to be able to press a button and change the inputed number on the calculator's screen to change to a percentage.
-
+QUnit.test("Test the percentage function", function( assert ) {
+    addDigit('1');
+    percentage();
+    assert.equal(document.getElementById("screen").value, "100%", "Passed - Expected 100%");
+    allClear();
+});
 
 //US3: As a user, I want to be able to calculate the inverse of a number simply by pressing a button.
 QUnit.test( "inverse test", function( assert ) {
@@ -38,9 +49,9 @@ QUnit.test( "factorial test", function( assert ) {
 
 //US5: As a user I want to be able to calculate the square root of a number by simply pressing a button.
 QUnit.test( "Square root test", function( assert ) {
-    addDigit('64');
+    addDigit('4');
     squareRoot();
-    assert.equal(document.getElementById("screen").value, "8", "Passed - Expected 8");
+    assert.equal(document.getElementById("screen").value, "2", "Passed - Expected 2");
     allClear();
 });
 
@@ -73,7 +84,6 @@ QUnit.test( "Square number test", function( assert ) {
 });
 
 //US9: Bug Alert! As an easily confused user I don't want to be able to type numbers into the screen that causes some of the numbers to disappear off the screen, thus confusing me about what I actually typed.
-
 QUnit.test( "Square number test", function( assert ) {
     addDigit('1');
     addDigit('2');
