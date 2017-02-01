@@ -168,14 +168,14 @@ function percentage() {
 function factorial() {
     var i = "";
     var fact = 1;
-    if (current_input < 0) {
-        current_input = "undefined";
+    if (currentInput < 0) {
+        currentInput = "undefined";
     }
     else {
-        for (i = 1; i <= current_input; i++) {
-            fact = fact * iother_memory;
+        for (i = 1; i <= currentInput; i++) {
+            fact = fact * i;
         }
-        current_input = fact;
+        currentInput = fact;
     }
     displayCurrentInput();
 }
