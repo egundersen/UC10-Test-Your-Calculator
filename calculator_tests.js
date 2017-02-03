@@ -84,7 +84,7 @@ QUnit.test( "Square number test", function( assert ) {
 });
 
 //US9: Bug Alert! As an easily confused user I don't want to be able to type numbers into the screen that causes some of the numbers to disappear off the screen, thus confusing me about what I actually typed.
-QUnit.test( "Square number test", function( assert ) {
+QUnit.test( "limit inputs test", function( assert ) {
     addDigit('1');
     addDigit('2');
     addDigit('3');
@@ -146,4 +146,55 @@ QUnit.test("Exponent Test", function (assert) {
     addDigit('-1');
     calculate();
     assert.equal(document.getElementById("screen").value, "0.5", "Passed negative exponent test - Expected 0.5");
+    allClear();
+});
+
+//Bonus: As a user in basic algebra, I want to be able to convert radians to degrees.
+QUnit.test( "degree test", function( assert ) {
+    addDigit('4');
+    toDegree();
+    assert.equal(document.getElementById("screen").value, "229.1831180523293", "Passed - Expected 229.1831180523293");
+    allClear();
+});
+
+//Bonus: As a user in basic algebra, I want to be able to convert degrees to radians.
+QUnit.test( "radian test", function( assert ) {
+    addDigit('4');
+    toRadian();
+    assert.equal(document.getElementById("screen").value, "0.06981317007977318", "Passed - Expected 0.06981317007977318");
+    allClear();
+});
+
+//Bonus: As a user who is too dumb to be able to remember that I input 4 in the calculator, I want to be able to store this value so that I may remember it for later.
+QUnit.test( "memory test", function( assert ) {
+    addDigit('4');
+    ms();
+    pleaseClear();
+    mr();
+    assert.equal(document.getElementById("screen").value, "4", "Passed - Expected 4");
+    allClear();
+
+    // As a kindergardener who like to use the usless store feature, I want to be able to display my stored number
+    addDigit('3');
+    ms();
+    pleaseClear();
+    mr();
+    assert.equal(document.getElementById("screen").value, "3", "Passed - Expected 3");
+    allClear();
+
+    // As a careless fool who bought the first calculator I saw at Toys R Us, I want to be able to plus numbers and equations and have none of them be displayed on the screen until I finish the entire equation. It also needs to be saved.
+    addDigit('9');
+    ms();
+    mPlus();
+    mr();
+    assert.equal(document.getElementById("screen").value, "18", "Passed - Expected 18");
+    allClear();
+
+    // As a careless fool who bought the first calculator I saw at Toys R Us, I want to be able to minus numbers and equations and have none of them be displayed on the screen until I finish the entire equation. It also needs to be saved.
+    addDigit('9');
+    ms();
+    mMinus();
+    mr();
+    assert.equal(document.getElementById("screen").value, "0", "Passed - Expected 0");
+    allClear();
 });
