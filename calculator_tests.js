@@ -91,3 +91,43 @@ QUnit.test( "Add decimal test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
     allClear();
 });
+
+//Challenge: Add trig functions - make sure that you include a DEGREE mode and a RADIAN mode!
+QUnit.test( "Trig function test", function( assert ) {
+    addDigit('1');
+    sin();
+    assert.equal(document.getElementById("screen").value, "0.8414709848078965", "Passed sin test- Expected 0.8414709848078965");
+    allClear();
+    addDigit('0');
+    cos();
+    assert.equal(document.getElementById("screen").value, "1", "Passed cos test- Expected 1");
+    allClear();
+    addDigit('1');
+    tan();
+    assert.equal(document.getElementById("screen").value, "1.5574077246549023", "Passed tan test- Expected 1.5574077246549023");
+    allClear();
+});
+
+//Super Challenge: Add the ability to represent and calculate with complex numbers such as the square root of -1.
+QUnit.test("Testing complex numbers", function( assert ) {
+    addDigit('1');
+    changeSign();
+    squareRoot();
+    assert.equal(document.getElementById("screen").value, "i", "Passed - Expected i");
+    allClear();
+});
+
+//Super Duper Challenge: Add the ability to work with exponents!
+QUnit.test("Exponent Test", function (assert) {
+    addDigit('2');
+    storeOperator('^');
+    addDigit('3');
+    calculate();
+    assert.equal(document.getElementById("screen").value, "8", "Passed positive exponent test - Expected 8");
+    allClear();
+    addDigit('2');
+    storeOperator('^');
+    addDigit('-1');
+    calculate();
+    assert.equal(document.getElementById("screen").value, "0.5", "Passed negative exponent test - Expected 0.5");
+});
